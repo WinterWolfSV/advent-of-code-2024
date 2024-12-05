@@ -25,12 +25,9 @@ public class D04P2 {
     public static boolean isXMas(String[] grid, int row, int col) {
         try {
             String[] smallGrid = {grid[row - 1].substring(col - 1, col + 2), grid[row].substring(col - 1, col + 2), grid[row + 1].substring(col - 1, col + 2)};
-            System.out.println(String.join("\n", smallGrid));
             Pattern pattern = Pattern.compile("(?=M.{3}A.{3}S|S.{3}A.{3}M)(?=.{2}M.A.S|.{2}S.A.M).");
             Matcher m = pattern.matcher(String.join("", smallGrid));
-            boolean find = m.find();
-            System.out.println(find ? "yes\n" : "no\n");
-            return find;
+            return m.find();
         } catch (Exception e) {
             return false;
         }
