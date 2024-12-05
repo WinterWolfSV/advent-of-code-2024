@@ -13,9 +13,7 @@ public class D05P1 {
             for (String r : rules) {
                 int p1 = l.indexOf(r.split("\\|")[0]);
                 int p2 = l.indexOf(r.split("\\|")[1]);
-                if (p1 == -1 | p2 == -1 | p1 < p2) {
-                    System.out.println(p1 + " " + p2);
-                } else {
+                if (!(p1 == -1 | p2 == -1 | p1 < p2)) {
                     flag = false;
                     break;
                 }
