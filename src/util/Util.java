@@ -14,7 +14,18 @@ public class Util {
         }
         return retval;
     }
-    public static String[] fileToArray(String path, String delimiter){
+
+    public static String[] fileToArray(String path, String delimiter) {
         return fileToString(path).split(delimiter);
+    }
+
+    public static int[][] toIntMatrix(String[] input) {
+        int[][] retval = new int[input.length][input[0].length()];
+        for (int i = 0; i < input.length; i++) {
+            for (int j = 0; j < input[i].length(); j++) {
+                retval[i][j] = Character.getNumericValue(input[i].charAt(j));
+            }
+        }
+        return retval;
     }
 }
