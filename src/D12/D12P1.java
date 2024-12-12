@@ -9,15 +9,15 @@ import java.util.stream.Stream;
 
 public class D12P1 {
     public static void main(String[] args) {
-        List<Point> found = new ArrayList<>();
-        List<List<Point>> regions = new ArrayList<>();
+        Set<Point> found = new HashSet<>();
+        List<Set<Point>> regions = new ArrayList<>();
         String[] data = Util.fileToArray("src/D12/input.txt", "\n");
 
         for (int y = 0; y < data.length; y++) {
             for (int x = 0; x < data[0].length(); x++) {
                 Point p = new Point(x, y);
                 if (found.contains(p)) continue;
-                List<Point> region = floodFillIsh(data, p);
+                Set<Point> region = floodFillIsh(data, p);
                 found.addAll(region);
                 regions.add(region);
             }
@@ -25,17 +25,17 @@ public class D12P1 {
 
         int tot = 0;
 
-        for (List<Point> region : regions) {
+        for (Set<Point> region : regions) {
             int fenceCost = region.stream().mapToInt(p -> getFenceCost(region, p)).sum();
             tot += region.size() * fenceCost;
         }
         System.out.println(tot);
     }
 
-    public static List<Point> floodFillIsh(String[] map, Point point) {
+    public static Set<Point> floodFillIsh(String[] map, Point point) {
         Set<Point> visited = new HashSet<>();
         Deque<Point> queue = new ArrayDeque<>();
-        List<Point> matches = new ArrayList<>();
+        Set<Point> matches = new HashSet<>();
         queue.add(point);
 
         char target = map[point.y].charAt(point.x);
@@ -63,7 +63,7 @@ public class D12P1 {
                 new Point(p.x, p.y + (p.y == 0 ? 0 : -1)));
     }
 
-    public static int getFenceCost(List<Point> points, Point p) {
+    public static int getFenceCost(Set<Point> points, Point p) {
         int x = p.x;
         int y = p.y;
         return (int) Stream.of(
@@ -73,6 +73,4 @@ public class D12P1 {
                 new Point(x, y - 1)
         ).filter(po -> !points.contains(po)).count();
     }
-
-
 }
