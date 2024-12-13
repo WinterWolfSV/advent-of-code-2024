@@ -17,8 +17,8 @@ public class D13P2 {
             }
             dX[2] += 10000000000000L;
             dY[2] += 10000000000000L;
-            Frac b = new Frac(dY[2], 1).subtract(new Frac(dY[0], 1).multiply(new Frac(dX[2], 1).divide(new Frac(dX[0], 1)))).divide(new Frac(dY[1], 1).subtract(new Frac(dY[0], 1).multiply(new Frac(dX[1], 1).divide(new Frac(dX[0], 1)))));
-            Frac a = new Frac(dX[2], 1).subtract(new Frac(dX[1], 1).multiply(b)).divide(new Frac(dX[0], 1));
+            Frac b = new Frac(dY[2]).sub(new Frac(dY[0]).mul(new Frac(dX[2]).div(new Frac(dX[0])))).div(new Frac(dY[1]).sub(new Frac(dY[0]).mul(new Frac(dX[1]).div(new Frac(dX[0])))));
+            Frac a = new Frac(dX[2]).sub(new Frac(dX[1]).mul(b)).div(new Frac(dX[0]));
             if (b.isWhole() && a.isWhole()) {
                 tot += b.n + a.n * 3;
 
@@ -34,21 +34,30 @@ class Frac {
     public long n;
     public long d;
 
+    public Frac(long numerator) {
+        this.n = numerator;
+        this.d = 1;
+    }
+
     public Frac(long numerator, long denominator) {
         this.n = numerator;
         this.d = denominator;
         simplify();
     }
 
-    public Frac subtract(Frac o) {
+    public Frac add(Frac o) {
+        return new Frac(this.n * o.d + o.n * this.d, this.d * o.d);
+    }
+
+    public Frac sub(Frac o) {
         return new Frac(this.n * o.d - o.n * this.d, this.d * o.d);
     }
 
-    public Frac multiply(Frac o) {
+    public Frac mul(Frac o) {
         return new Frac(this.n * o.n, this.d * o.d);
     }
 
-    public Frac divide(Frac o) {
+    public Frac div(Frac o) {
         return new Frac(this.n * o.d, this.d * o.n);
     }
 
