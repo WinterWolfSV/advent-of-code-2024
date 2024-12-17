@@ -19,7 +19,7 @@
 | 13  | [⭐](src/D13/D13P1.java) | [⭐](src/D13/D13P2.java) |
 | 14  | [⭐](src/D14/D14P1.java) | [⭐](src/D14/D14P2.java) |
 | 15  | [⭐](src/D15/D15P1.java) | [ ](src/D15/D15P2.java) |
-| 16  | [ ](src/D16/D16P1.java) | [ ](src/D16/D16P2.java) |
+| 16  | [⭐](src/D16/D16P1.java) | [ ](src/D16/D16P2.java) |
 | 17  | [ ](src/D17/D17P1.java) | [ ](src/D17/D17P2.java) |
 | 18  | [ ](src/D18/D18P1.java) | [ ](src/D18/D18P2.java) |
 | 19  | [ ](src/D19/D19P1.java) | [ ](src/D19/D19P2.java) |
