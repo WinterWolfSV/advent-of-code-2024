@@ -19,6 +19,10 @@ public class Util {
         return fileToString(path).split(delimiter);
     }
 
+    public static String[] fileToArray(String path) {
+        return fileToArray(path, "\n");
+    }
+
     public static int[][] toIntMatrix(String[] input) {
         int[][] retval = new int[input.length][input[0].length()];
         for (int i = 0; i < input.length; i++) {
