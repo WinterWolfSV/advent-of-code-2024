@@ -28,4 +28,4 @@
 | 22  | [⭐](src/D22/D22P1.java) | [⭐](src/D22/D22P2.java) |
 | 23  | [⭐](src/D23/D23P1.java) | [⭐](src/D23/D23P2.java) |
 | 24  | [⭐](src/D24/D24P1.java) | [ ](src/D24/D24P2.java) |
-| 25  | [ ](src/D25/D25P1.java) | [ ](src/D25/D25P2.java) |
+| 25  | [⭐](src/D25/D25P1.java) | [ ](src/D25/D25P2.java) |
